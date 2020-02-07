@@ -53,12 +53,13 @@ namespace ReproductordeAudio
         public int Read(float[] buffer, int offset, int count)
         {
             int read = fuente.Read(buffer, offset,count);
-            // Aplicar el efecto
+            // subir bajar vol.
             for(int i =0; i < read; i++)
             {
                 buffer[i + offset] *= volumen;
 
             }
+
             return read;
         }
     }

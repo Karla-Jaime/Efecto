@@ -41,7 +41,7 @@ namespace ReproductordeAudio
         //VolumeSampleProvider volume;
         //
         EfectoVolumen efectoVolumen;
-
+        FadeIn fadeIn;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +58,11 @@ namespace ReproductordeAudio
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
+            //if(fadeIn != null)
+            //{
+            //    txtMuestras.Text = fadeIn.segundosTranscurridos.ToString();
+            //}
+
             lblTiempoActual.Text = reader.CurrentTime.ToString().Substring(0,8);
             //Actualiza 
             if (!dragging)
@@ -106,8 +110,12 @@ namespace ReproductordeAudio
                     //necesita una fuente de sonido 
                     //volume = new VolumeSampleProvider(reader);
                     //volume.Volume = (float)(sldVolumen.Value);
-                    efectoVolumen = new EfectoVolumen(reader);
+
+                    fadeIn = new FadeIn(reader, 12.0f);
+                    efectoVolumen = new EfectoVolumen(fadeIn);
                     efectoVolumen.Volumen = (float)(sldVolumen.Value);
+                   
+                    
 
                     output = new WaveOut();
 
@@ -129,7 +137,6 @@ namespace ReproductordeAudio
                     sldTiempo.Maximum = reader.TotalTime.TotalSeconds;
                     sldTiempo.Value = reader.CurrentTime.TotalSeconds;
 
-                    
 
                     timer.Start();                                                       }
             }
