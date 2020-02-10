@@ -42,6 +42,7 @@ namespace ReproductordeAudio
         //
         EfectoVolumen efectoVolumen;
         FadeIn fadeIn;
+        FadeOut fadeOut;
         public MainWindow()
         {
             InitializeComponent();
@@ -110,13 +111,16 @@ namespace ReproductordeAudio
                     //necesita una fuente de sonido 
                     //volume = new VolumeSampleProvider(reader);
                     //volume.Volume = (float)(sldVolumen.Value);
+                    float duracionfadein = float.Parse(txtDuracion.Text);
+                    float duracionFadeOut = float.Parse(txtduracionFO.Text);
+                    float inicio = float.Parse(txtInicio.Text);
+                    //fadeIn = new FadeIn(reader, duracionfadein);
+                     fadeOut = new FadeOut(reader, duracionFadeOut, inicio);
 
-                    fadeIn = new FadeIn(reader, 12.0f);
-                    efectoVolumen = new EfectoVolumen(fadeIn);
+                    efectoVolumen = new EfectoVolumen(fadeOut);
+                                       
                     efectoVolumen.Volumen = (float)(sldVolumen.Value);
                    
-                    
-
                     output = new WaveOut();
 
                     output.DeviceNumber = cbDispositivoSalida.SelectedIndex;
@@ -195,5 +199,6 @@ namespace ReproductordeAudio
                 efectoVolumen.Volumen = (float)(sldVolumen.Value);
             }
         }
+
     }
 }
