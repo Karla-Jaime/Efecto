@@ -40,17 +40,16 @@ namespace ReproductordeAudio
             segundosTranscurridos = ((float)(muestrasLeidas) / (float)(fuente.WaveFormat.SampleRate))
                 / (float)(fuente.WaveFormat.Channels);
 
-            if (segundosTranscurridos <= inicio)
+            if (segundosTranscurridos >= inicio)
             {
                 //aplicar efecto
-                float factorEscala = segundosTranscurridos * duracion;
+                float factorEscala = 1 -  ((segundosTranscurridos - inicio) /duracion);
                 for (int i = 1; i < read; i++)
                 {//*= escalar
-                    buffer[i + offset] /= factorEscala;
+                    buffer[i + offset] *= factorEscala;
                 }
             }
-
-
+            
             return read;
         }
     }

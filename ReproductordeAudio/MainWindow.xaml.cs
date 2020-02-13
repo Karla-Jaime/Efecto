@@ -108,12 +108,16 @@ namespace ReproductordeAudio
                 if (txtRutaArchivo.Text != null && txtRutaArchivo.Text != string.Empty)
                 {
                     reader = new AudioFileReader(txtRutaArchivo.Text);
-                    //necesita una fuente de sonido 
+                    
                     //volume = new VolumeSampleProvider(reader);
                     //volume.Volume = (float)(sldVolumen.Value);
+
                     float duracionfadein = float.Parse(txtDuracion.Text);
+
                     float duracionFadeOut = float.Parse(txtduracionFO.Text);
                     float inicio = float.Parse(txtInicio.Text);
+
+
                     //fadeIn = new FadeIn(reader, duracionfadein);
                      fadeOut = new FadeOut(reader, duracionFadeOut, inicio);
 
