@@ -34,13 +34,12 @@ namespace ReproductordeAudio
         {
             int read = fuente.Read(buffer, offset, count);
             //Fade Out
-            //Para calcular tiempo trans.
+            
             muestrasLeidas += read;
-            //para no tener problemas con enteros
             segundosTranscurridos = ((float)(muestrasLeidas) / (float)(fuente.WaveFormat.SampleRate))
                 / (float)(fuente.WaveFormat.Channels);
 
-            if (segundosTranscurridos >= inicio)
+            if (segundosTranscurridos >= inicio )
             {
                 //aplicar efecto
                 float factorEscala = 1 -  ((segundosTranscurridos - inicio) /duracion);
@@ -49,7 +48,13 @@ namespace ReproductordeAudio
                     buffer[i + offset] *= factorEscala;
                 }
             }
-            
+            if (segundosTranscurridos >= inicio + duracion)
+            {
+                for (int i = 1; i < read; i++)
+                {
+                    buffer[i + offset] *= 0;
+                }
+            }            
             return read;
         }
     }

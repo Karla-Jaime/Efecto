@@ -17,7 +17,7 @@ namespace ReproductordeAudio
         public EfectoVolumen(ISampleProvider fuente)
         {//this hace referencia a la clase. para no crear conflucto
             this.fuente = fuente;
-            volumen = 0.2f;
+            volumen = 1.0f;
         }
 
         public float Volumen
@@ -53,7 +53,7 @@ namespace ReproductordeAudio
         public int Read(float[] buffer, int offset, int count)
         {
             int read = fuente.Read(buffer, offset,count);
-            // subir bajar vol.
+            // subir bajar vol.-Efecto
             for(int i =0; i < read; i++)
             {
                 buffer[i + offset] *= volumen;

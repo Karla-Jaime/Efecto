@@ -20,6 +20,7 @@ namespace ReproductordeAudio
             this.fuente = fuente;
             this.duracion = duracion;
         }
+
         public WaveFormat WaveFormat
         {
             get
@@ -34,12 +35,14 @@ namespace ReproductordeAudio
             //Fade In 
             //Para calcular tiempo trans.
             muestrasLeidas += read;
+
             //para no tener problemas con enteros
             segundosTranscurridos = ((float)(muestrasLeidas) /(float)( fuente.WaveFormat.SampleRate))
                 /(float)(fuente.WaveFormat.Channels);
             
             if(segundosTranscurridos <= duracion)
             {
+                /**/
                 //aplicar efecto
                 float factorEscala = segundosTranscurridos / duracion;
                 for (int i=0; i <read; i++)
