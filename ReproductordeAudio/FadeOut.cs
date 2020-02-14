@@ -43,16 +43,16 @@ namespace ReproductordeAudio
             {
                 //aplicar efecto
                 float factorEscala = 1 -  ((segundosTranscurridos - inicio) /duracion);
-                for (int i = 1; i < read; i++)
+                for (int i = 0; i < read; i++)
                 {//*= escalar
                     buffer[i + offset] *= factorEscala;
                 }
             }
             if (segundosTranscurridos >= inicio + duracion)
             {
-                for (int i = 1; i < read; i++)
+                for (int i = 0; i < read; i++)
                 {
-                    buffer[i + offset] *= 0;
+                    buffer[i + offset] = 0;
                 }
             }            
             return read;
