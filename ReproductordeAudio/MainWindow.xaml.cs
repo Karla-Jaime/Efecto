@@ -43,6 +43,7 @@ namespace ReproductordeAudio
         EfectoVolumen efectoVolumen;
         FadeIn fadeIn;
         FadeOut fadeOut;
+        EfectoDelay efectoDelay;
         public MainWindow()
         {
             InitializeComponent();
@@ -108,20 +109,21 @@ namespace ReproductordeAudio
                 if (txtRutaArchivo.Text != null && txtRutaArchivo.Text != string.Empty)
                 {
                     reader = new AudioFileReader(txtRutaArchivo.Text);
-                    
+
                     //volume = new VolumeSampleProvider(reader);
                     //volume.Volume = (float)(sldVolumen.Value);
+                    efectoDelay = new EfectoDelay(reader,(int)(sldOffsetDelay.Value));
 
                     float duracionfadein = float.Parse(txtDuracion.Text);
-
                     float duracionFadeOut = float.Parse(txtduracionFO.Text);
+
                     float inicio = float.Parse(txtInicio.Text);
+                    
+                    fadeIn = new FadeIn(efectoDelay, duracionfadein);
+                    //fadeOut = new FadeOut(efectoDelay, duracionFadeOut, inicio);
+                   
 
-
-                    //fadeIn = new FadeIn(reader, duracionfadein);
-                     fadeOut = new FadeOut(reader, duracionFadeOut, inicio);
-
-                    efectoVolumen = new EfectoVolumen(fadeOut);                                       
+                    efectoVolumen = new EfectoVolumen(fadeIn);                                       
                     efectoVolumen.Volumen = (float)(sldVolumen.Value);
                    
                     output = new WaveOut();
@@ -203,5 +205,9 @@ namespace ReproductordeAudio
             }
         }
 
+        private void SldOffsetDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            lblOffsetDelay.Text =((int)( sldOffsetDelay.Value)).ToString();
+        }
     }
 }
