@@ -9,39 +9,44 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="197*"/>
-            <ColumnDefinition Width="243*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="23*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="24,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontFamily="arial" FontSize="16" Grid.ColumnSpan="2"><Run Text="Reproductor de"/><Run Text=" "/><Run Text="Audio"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="24,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontFamily="arial" FontSize="16" Grid.ColumnSpan="2" Height="18"><Run Text="Reproductor de"/><Run Text=" "/><Run Text="Audio"/></TextBlock>
         <TextBox x:Name="txtRutaArchivo" HorizontalAlignment="Left" Height="23" Margin="24,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351" Grid.ColumnSpan="3"/>
-        <Button x:Name="btnExaminar" Content="ElegirAudio" HorizontalAlignment="Left" Margin="103.494,13,0,0" VerticalAlignment="Top" Width="75" Click="btnExaminar_Click" Grid.Column="2"/>
-        <Button x:Name="btnPausa" Content="Pausa" HorizontalAlignment="Left" Margin="167,74,0,0" VerticalAlignment="Top" Width="70" Click="btnPausa_Click" Grid.ColumnSpan="3"/>
-        <Button x:Name="btnDetener" Content="Detener" HorizontalAlignment="Left" Margin="54.494,74,0,0" VerticalAlignment="Top" Width="70" Click="btnDetener_Click" Grid.Column="2"/>
-        <Button x:Name="btnReproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="80,74,0,0" VerticalAlignment="Top" Width="70" Click="btnReproducir_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnExaminar" Content="ElegirAudio" HorizontalAlignment="Left" Margin="103,13,0,0" VerticalAlignment="Top" Width="75" Click="btnExaminar_Click" Grid.Column="2" Height="20"/>
+        <Button x:Name="btnPausa" Content="Pausa" HorizontalAlignment="Left" Margin="167,74,0,0" VerticalAlignment="Top" Width="70" Click="btnPausa_Click" Grid.ColumnSpan="3" Height="20"/>
+        <Button x:Name="btnDetener" Content="Detener" HorizontalAlignment="Left" Margin="54,74,0,0" VerticalAlignment="Top" Width="70" Click="btnDetener_Click" Grid.Column="2" Height="20"/>
+        <Button x:Name="btnReproducir" Content="Reproducir" HorizontalAlignment="Left" Margin="80,74,0,0" VerticalAlignment="Top" Width="70" Click="btnReproducir_Click" Grid.ColumnSpan="2" Height="20"/>
 
-        <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="31,222,0,0" TextWrapping="Wrap" Text="00.00.00" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="141.494,222,0,0" TextWrapping="Wrap" Text="00.00.00" VerticalAlignment="Top" Grid.Column="2"/>
+        <TextBlock x:Name="lblTiempoActual" HorizontalAlignment="Left" Margin="31,222,0,0" TextWrapping="Wrap" Text="00.00.00" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="44"/>
+        <TextBlock x:Name="lblTiempoTotal" HorizontalAlignment="Left" Margin="141,222,0,0" TextWrapping="Wrap" Text="00.00.00" VerticalAlignment="Top" Grid.Column="2" Height="16" Width="45"/>
         <Slider x:Name="sldTiempo" HorizontalAlignment="Left" Margin="31,244,0,0" VerticalAlignment="Top" Width="351" 
-                Thumb.DragStarted="SldTiempo_DragStarted" Thumb.DragCompleted="SldTiempo_DragCompleted" Grid.ColumnSpan="3" Value="1500"/>
+                Thumb.DragStarted="SldTiempo_DragStarted" Thumb.DragCompleted="SldTiempo_DragCompleted" Grid.ColumnSpan="3" Value="1500" Height="18"/>
 
-        <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="31,291,0,0" VerticalAlignment="Top" Width="351" Grid.ColumnSpan="3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="31,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.034,1.042" Height="17" Grid.ColumnSpan="2"><Run Text="Sa"/><Run Text="lida"/><Run Text=" "/><Run Text="de"/><Run Text=" "/><Run Text="Audio"/><LineBreak/><Run/></TextBlock>
-        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="203.494,75,0,0" Width="20" Orientation="Vertical" Height="117" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="2" ValueChanged="SldVolumen_ValueChanged" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="190.494,54,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top" Width="47" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="31,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Fade In"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name="cbDispositivoSalida" HorizontalAlignment="Left" Margin="31,291,0,0" VerticalAlignment="Top" Width="351" Grid.ColumnSpan="3" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.034,1.042" Height="17" Grid.ColumnSpan="2" Width="83"><Run Text="Sa"/><Run Text="lida"/><Run Text=" "/><Run Text="de"/><Run Text=" "/><Run Text="Audio"/><LineBreak/><Run/></TextBlock>
+        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,63,0,0" Width="20" Orientation="Vertical" Height="82" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="2" ValueChanged="SldVolumen_ValueChanged" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="172,42,0,0" TextWrapping="Wrap" Text="Volumen" VerticalAlignment="Top" Width="47" Grid.Column="2" Height="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="16" Width="41"><Run Text="Fade In"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="33,132,0,0" TextWrapping="Wrap" Text="Duración:" VerticalAlignment="Top" FontSize="10
-" Grid.ColumnSpan="2"/>
+" Grid.ColumnSpan="2" Height="13" Width="42"/>
         <TextBox x:Name="txtDuracion" HorizontalAlignment="Left" Height="15" Margin="80,130,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="70" FontSize="10" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="188,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3"><Run Text="Fade "/><Run Text="Out"/><Run Text=":"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="157,122,0,0" TextWrapping="Wrap" Text="Inicio:" VerticalAlignment="Top" FontSize="10 " Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="188,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="16" Width="51"><Run Text="Fade "/><Run Text="Out"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="157,122,0,0" TextWrapping="Wrap" Text="Inicio:" VerticalAlignment="Top" FontSize="10 " Grid.ColumnSpan="2" Height="13" Width="26"/>
         <TextBox x:Name="txtInicio" HorizontalAlignment="Left" Height="15" Margin="188,120,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="33"  FontSize="10" Grid.ColumnSpan="3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="29.494,122,0,0" TextWrapping="Wrap" Text="Duración:" VerticalAlignment="Top" FontSize="10 " Grid.Column="2"/>
-        <TextBox x:Name="txtduracionFO" HorizontalAlignment="Left" Height="15" Margin="78.494,121,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="33"  FontSize="10" Grid.Column="2"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,160,0,0" TextWrapping="Wrap" Text="Delay:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblOffsetDelay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="96,199,0,0" TextWrapping="Wrap" Text="1500" VerticalAlignment="Top" FontSize="9" Width="49" TextAlignment="Right"/>
-        <Slider x:Name="sldOffsetDelay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,181,0,0" VerticalAlignment="Top" Width="117" Value="1500" ValueChanged="SldOffsetDelay_ValueChanged" Maximum="10000" TickFrequency="0"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="121,168,0,0" TextWrapping="Wrap" Text="Offset" VerticalAlignment="Top" FontSize="9"/>
-      
+        <TextBlock HorizontalAlignment="Left" Margin="29,122,0,0" TextWrapping="Wrap" Text="Duración:" VerticalAlignment="Top" FontSize="10 " Grid.Column="2" Height="13" Width="42"/>
+        <TextBox x:Name="txtduracionFO" HorizontalAlignment="Left" Height="15" Margin="78,121,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="33"  FontSize="10" Grid.Column="2"/>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,150,0,0" TextWrapping="Wrap" Text="Delay:" VerticalAlignment="Top" Height="16" Width="32"/>
+        <TextBlock x:Name="lblOffsetDelay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="96,189,0,0" TextWrapping="Wrap" Text="1500" VerticalAlignment="Top" FontSize="9" Width="49" TextAlignment="Right" Height="12"/>
+        <Slider x:Name="sldOffsetDelay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="33,171,0,0" VerticalAlignment="Top" Width="117" Value="1500" ValueChanged="SldOffsetDelay_ValueChanged" Maximum="10000" TickFrequency="0" Height="18"/>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="121,158,0,0" TextWrapping="Wrap" Text="Offset" VerticalAlignment="Top" FontSize="9" Height="12" Width="24"/>
+
+        <Slider x:Name="sldGananciaDelay" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="155,171,0,0" VerticalAlignment="Top" Width="117" Value="0.5"  Maximum="1" TickFrequency="0" Height="18" ValueChanged="SldGananciaDelay_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,158,0,0" TextWrapping="Wrap" Text="Ganancia" VerticalAlignment="Top" FontSize="9" Height="12" Width="37" Grid.Column="2"/>
+        
+        <TextBlock x:Name="lblGanciaDelay" HorizontalAlignment="Left" Margin="8,189,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" FontSize="9" Width="49" TextAlignment="Right" Height="12" Grid.Column="2"/>
+
 
 
     </Grid>

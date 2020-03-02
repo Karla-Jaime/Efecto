@@ -120,7 +120,7 @@ namespace ReproductordeAudio
                     float inicio = float.Parse(txtInicio.Text);
                     
                     fadeIn = new FadeIn(efectoDelay, duracionfadein);
-                    //fadeOut = new FadeOut(efectoDelay, duracionFadeOut, inicio);
+                    fadeOut = new FadeOut(fadeIn, duracionFadeOut, inicio);
                    
 
                     efectoVolumen = new EfectoVolumen(fadeIn);                                       
@@ -208,6 +208,19 @@ namespace ReproductordeAudio
         private void SldOffsetDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblOffsetDelay.Text =((int)( sldOffsetDelay.Value)).ToString();
+            if (efectoDelay != null)
+            {
+                efectoDelay.OffsetMilisegundos =(int)(sldOffsetDelay.Value);
+            }
+        }
+
+        private void SldGananciaDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+           if(lblGanciaDelay != null)
+            {
+                lblGanciaDelay.Text = sldGananciaDelay.Value.ToString("N");
+            }
+
         }
     }
 }

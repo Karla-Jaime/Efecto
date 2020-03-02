@@ -10,8 +10,30 @@ namespace ReproductordeAudio
 {
     class EfectoDelay : ISampleProvider
     {
-        ISampleProvider fuente;
-        public int offsetMiliSegundos;
+        private ISampleProvider fuente;
+        private int offsetMiliSegundos;
+        public int OffsetMilisegundos
+        {
+            get
+            {
+                return OffsetMilisegundos;
+            }
+            set
+            {
+                if (value > 20000)
+                {
+                    offsetMiliSegundos = 20000;
+                }
+                else if (value<0)
+                {
+                    offsetMiliSegundos = 0;
+                }
+                else
+                {
+                    offsetMiliSegundos = value;
+                }
+            }
+        }
 
         List<float> muestras = new List<float>();
         private int tamañoBuffer;
@@ -41,8 +63,9 @@ namespace ReproductordeAudio
         {
             int read = fuente.Read(buffer, offset, count);
             //Calculo de tiempos
-            float milisegundosTranscurridos = ((float)cantidadMuestrasTranscurridas /
-                (float)(fuente.WaveFormat.SampleRate) *  fuente.WaveFormat.Channels) * 1000.0f;
+            float milisegundosTranscurridos = (((float)cantidadMuestrasTranscurridas /
+                ((float)(fuente.WaveFormat.SampleRate) *  (float)(fuente.WaveFormat.Channels)))) * 1000.0f;
+
             int numeroMuestrasOffset =(int)((offsetMiliSegundos / 1000.0f)* (float)(fuente.WaveFormat.SampleRate));
 
             //Llenar el buffer
@@ -61,10 +84,10 @@ namespace ReproductordeAudio
             //Aplicar el efecto Delay
             if(milisegundosTranscurridos > offsetMiliSegundos)
             {
-                for (int i =0; i <read; i++)
+                for (int i = 0; i < read; i++)
                 {
-                    buffer[i + offset] += muestras[((cantidadMuestrasTranscurridas -
-                        cantidadmuestrasBorradas) + i)- numeroMuestrasOffset];
+                    buffer[i + offset] += muestras[(cantidadMuestrasTranscurridas -
+                        cantidadmuestrasBorradas) + i - numeroMuestrasOffset];
                 }
             }
 
