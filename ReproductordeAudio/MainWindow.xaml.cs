@@ -112,7 +112,7 @@ namespace ReproductordeAudio
 
                     //volume = new VolumeSampleProvider(reader);
                     //volume.Volume = (float)(sldVolumen.Value);
-                    efectoDelay = new EfectoDelay(reader,(int)(sldOffsetDelay.Value));
+                    efectoDelay = new EfectoDelay(reader,(int)(sldOffsetDelay.Value),(float)(sldGananciaDelay.Value));
 
                     float duracionfadein = float.Parse(txtDuracion.Text);
                     float duracionFadeOut = float.Parse(txtduracionFO.Text);
@@ -212,13 +212,17 @@ namespace ReproductordeAudio
             {
                 efectoDelay.OffsetMilisegundos =(int)(sldOffsetDelay.Value);
             }
-        }
+        }///sueño
 
         private void SldGananciaDelay_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
            if(lblGanciaDelay != null)
             {
                 lblGanciaDelay.Text = sldGananciaDelay.Value.ToString("N");
+               if(efectoDelay != null)
+                {
+                    efectoDelay.Ganancia = (float)(sldGananciaDelay.Value);
+                }
             }
 
         }
